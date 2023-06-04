@@ -2,44 +2,59 @@ import { GraphDataArray, MappedData } from "../types";
 
 export const mapEnergy = (data: MappedData) => {
   const energyData: GraphDataArray = [];
-  Object.entries(data).map(([key, value]) => {
-    if (value.energyConsumption) {
-      const dateTime = new Date(key).getTime();
-      energyData.push({ x: dateTime, y: parseFloat(value.energyConsumption) });
-    }
-  });
+  if (data) {
+    Object.entries(data).map(([key, value]) => {
+      if (value.energyConsumption) {
+        const dateTime = new Date(key).getTime();
+        energyData.push({
+          x: dateTime,
+          y: parseFloat(value.energyConsumption),
+        });
+      }
+    });
+  }
+
   return energyData;
 };
 
 export const mapAnomaly = (data: MappedData) => {
   const energyData: GraphDataArray = [];
-  Object.entries(data).map(([key, value]) => {
-    if (value.anomalyConsumption) {
-      const dateTime = new Date(key).getTime();
-      energyData.push({ x: dateTime, y: parseFloat(value.anomalyConsumption) });
-    }
-  });
+  if (data) {
+    Object.entries(data).map(([key, value]) => {
+      if (value.anomalyConsumption) {
+        const dateTime = new Date(key).getTime();
+        energyData.push({
+          x: dateTime,
+          y: parseFloat(value.anomalyConsumption),
+        });
+      }
+    });
+  }
   return energyData;
 };
 
 export const mapTemperature = (data: MappedData) => {
   const energyData: GraphDataArray = [];
-  Object.entries(data).map(([key, value]) => {
-    if (value.avgTemperature) {
-      const dateTime = new Date(key).getTime();
-      energyData.push({ x: dateTime, y: parseFloat(value.avgTemperature) });
-    }
-  });
+  if (data) {
+    Object.entries(data).map(([key, value]) => {
+      if (value.avgTemperature) {
+        const dateTime = new Date(key).getTime();
+        energyData.push({ x: dateTime, y: parseFloat(value.avgTemperature) });
+      }
+    });
+  }
   return energyData;
 };
 
 export const mapHumidity = (data: MappedData) => {
   const energyData: GraphDataArray = [];
-  Object.entries(data).map(([key, value]) => {
-    if (value.avgHumidity) {
-      const dateTime = new Date(key).getTime();
-      energyData.push({ x: dateTime, y: parseFloat(value.avgHumidity) });
-    }
-  });
+  if (data) {
+    Object.entries(data).map(([key, value]) => {
+      if (value.avgHumidity) {
+        const dateTime = new Date(key).getTime();
+        energyData.push({ x: dateTime, y: parseFloat(value.avgHumidity) });
+      }
+    });
+  }
   return energyData;
 };
