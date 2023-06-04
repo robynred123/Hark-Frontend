@@ -2,18 +2,15 @@ import Highcharts, { Options } from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
 import { formatToolTip } from "../utils/formatToolTip";
 import { MappedData } from "../types";
-import { mapEnergy, mapAnomaly, mapTemperature, mapHumidity } from "../mappers";
+import { useState } from "react";
+import { determineSeries } from "../utils/seriesSelector";
 
 export const LineGraph = (data: { data: MappedData }) => {
-  const energyData = mapEnergy(data.data);
-  const anomalyData = mapAnomaly(data.data);
-  const temperatureData = mapTemperature(data.data);
-  const humidityData = mapHumidity(data.data);
-  const firstDate = new Date(Object.keys(data)[0]).getTime();
+  const [graphView, setGraphView] = useState<number>(1);
 
   const options: Options = {
     title: {
-      text: "Energy and Weather Data In Your Location",
+      text: determineSeries(graphView, data).title,
     },
     accessibility: {
       enabled: true,
@@ -42,40 +39,7 @@ export const LineGraph = (data: { data: MappedData }) => {
       },
       shared: true,
     },
-    series: [
-      {
-        type: "line",
-        name: "Energy Consumption",
-        data: energyData,
-        pointInterval: 1000 * 60 * 30,
-        pointStart: firstDate,
-      },
-      {
-        type: "line",
-        lineWidth: 0,
-        name: "Anomalies",
-        data: anomalyData,
-        pointStart: firstDate,
-        showInLegend: false,
-      },
-      {
-        type: "scatter",
-        name: "Energy Usage Anomalies",
-        enableMouseTracking: false,
-        data: anomalyData,
-        pointStart: firstDate,
-      },
-      {
-        type: "line",
-        name: "Average Temperature",
-        data: temperatureData,
-      },
-      {
-        type: "line",
-        name: "Average Humidity",
-        data: humidityData,
-      },
-    ],
+    series: determineSeries(graphView, data).series,
   };
 
   return (
