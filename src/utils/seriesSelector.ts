@@ -37,6 +37,7 @@ export const determineSeries = (graphView, data) => {
     type: "line",
     name: "Average Humidity",
     data: humidityData,
+    showInLegend: true,
   };
 
   const temperatureSeries = {

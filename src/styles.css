@@ -30,6 +30,34 @@ main {
   padding: 1em;
 }
 
+.buttonContainer {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  align-content: center;
+  justify-content: space-evenly;
+  padding: 1em 0;
+}
+
+button {
+  display: flex;
+  background-color: var(--accent-green);
+  border-radius: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border: none;
+}
+
+button:hover {
+  background-color: var(--accent-blue);
+}
+
+.icon {
+  color: var(--header-colour);
+}
+
 .logo {
   width: 10em;
 }

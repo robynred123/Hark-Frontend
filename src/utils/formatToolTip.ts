@@ -5,7 +5,7 @@ export const formatToolTip = (
 ) => {
   switch (point.series.name) {
     case "Anomalies": {
-      return `${s}<br />Energy Usage Anomaly: true`;
+      return `${s}<br /><b style="color:red">Energy Usage Anomaly: true</b>`;
     }
     case "Average Temperature": {
       return `${s}<br />${point.series.name}: ${point.y}&deg C`;

@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import getEnergyData from "../queries/getEnergyData";
 import { MappedData } from "../types";
-import { LineGraph } from "../components/lineGraphtwo";
+import { LineGraph } from "../components/lineGraph";
 
 export const Home = () => {
   const { data, isError, error, isLoading } = useQuery<MappedData, Error>(
