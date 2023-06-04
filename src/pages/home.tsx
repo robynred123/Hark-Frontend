@@ -17,7 +17,10 @@ export const Home = () => {
     return <h1>{error.message}</h1>;
   }
   return (
-    <div data-testid="lineGraphContainer">
+    <div
+      style={{ width: "100%", height: "100%" }}
+      data-testid="lineGraphContainer"
+    >
       <LineGraph data={data} />
     </div>
   );
