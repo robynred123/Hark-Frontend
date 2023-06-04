@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    //"types": ["node", "jest", "@testing-library/jest-dom"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*"]
+}

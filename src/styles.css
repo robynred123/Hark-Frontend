@@ -1,0 +1,22 @@
+:root {
+  --bg-colour: #2a363f;
+  --header-colour: #fff;
+  --text-colour: #e0e5e8;
+  --accent-green: #61ce70;
+  --accent-blue: #3654b5;
+
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-colour);
+  font-family: "Poppins", Sans-serif;
+}
+
+h1 {
+  color: var(--header-colour);
+  font-size: 32px;
+}
+
+p {
+  color: var(--text-colour);
+  font-size: 16px;
+}
