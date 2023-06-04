@@ -13,12 +13,19 @@ import { Button } from "./button";
 export const LineGraph = (data: { data: MappedData }) => {
   const [graphView, setGraphView] = useState<number>(1);
 
-  const setView = () => {
-    // this should be made dynamic for easily extending functionality
-    const noOfViews = 3;
-    if (graphView === noOfViews) {
-      return setGraphView(1);
-    } else return setGraphView(graphView + 1);
+  const setView = (direction: string) => {
+    switch (direction) {
+      case "forward": {
+        if (graphView === 3) {
+          return setGraphView(1);
+        } else return setGraphView(graphView + 1);
+      }
+      case "back": {
+        if (graphView === 1) {
+          return setGraphView(3);
+        } else return setGraphView(graphView - 1);
+      }
+    }
   };
 
   const options: Options = {
@@ -66,11 +73,11 @@ export const LineGraph = (data: { data: MappedData }) => {
       </div>
       <div className="buttonContainer">
         <Button
-          onClick={() => setView()}
+          onClick={() => setView("back")}
           icon={<FaRegArrowAltCircleLeft className="icon" size={"35px"} />}
         />
         <Button
-          onClick={() => setView()}
+          onClick={() => setView("forward")}
           icon={<FaRegArrowAltCircleRight className="icon" size={"35px"} />}
         />
       </div>

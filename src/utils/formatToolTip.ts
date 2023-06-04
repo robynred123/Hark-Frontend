@@ -1,4 +1,5 @@
 import Highcharts from "highcharts";
+
 export const formatToolTip = (
   s: string,
   point: Highcharts.TooltipFormatterContextObject
@@ -11,7 +12,7 @@ export const formatToolTip = (
       return `${s}<br />${point.series.name}: ${point.y}&deg C`;
     }
     case "Average Humidity": {
-      return `${s}<br />${point.series.name}: ${point.y}&deg RH`;
+      return `${s}<br />${point.series.name}: ${point.y} RH`;
     }
     default: {
       return `${s}<br />${point.series.name}: ${point.y}`;

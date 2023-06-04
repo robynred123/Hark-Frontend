@@ -6,14 +6,12 @@ export const determineSeries = (graphView, data) => {
   const anomalyData: GraphDataArray = mapAnomaly(data.data);
   const temperatureData: GraphDataArray = mapTemperature(data.data);
   const humidityData: GraphDataArray = mapHumidity(data.data);
-  const firstDate: number = new Date(Object.keys(data)[0]).getTime();
 
   const energySeries = {
     type: "line",
     name: "Energy Consumption",
     data: energyData,
     pointInterval: 1000 * 60 * 30,
-    pointStart: firstDate,
   };
 
   const anomalySeries = {
@@ -21,7 +19,6 @@ export const determineSeries = (graphView, data) => {
     lineWidth: 0,
     name: "Anomalies",
     data: anomalyData,
-    pointStart: firstDate,
     showInLegend: false,
   };
 
@@ -30,7 +27,6 @@ export const determineSeries = (graphView, data) => {
     name: "Energy Usage Anomalies",
     enableMouseTracking: false,
     data: anomalyData,
-    pointStart: firstDate,
   };
 
   const humiditySeries = {

@@ -1,25 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { Home } from "./home";
-import { MappedData } from "../types";
 import { QueryClient, QueryClientProvider } from "react-query";
 import * as ReactQuery from "react-query";
-
-const mockData: MappedData = {
-  "2020-01-01T00:00:00.000Z": {
-    anomalyConsumption: "10.33",
-    avgHumidity: "0.93",
-    avgTemperature: "9.25",
-    dateTime: "2020-01-01T00:00:00.000Z",
-    energyConsumption: "10.33",
-  },
-  "2020-01-01T00:30:00.000Z": {
-    avgHumidity: "0.93",
-    avgTemperature: "9.25",
-    dateTime: "2020-01-01T00:30:00.000Z",
-    energyConsumption: "0.87",
-  },
-};
+import { Home } from "./home";
+import { mockData } from "../../mocks/testData";
 
 const queryClient = new QueryClient();
 const querySpy = jest.spyOn(ReactQuery, "useQuery");
