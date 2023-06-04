@@ -3,6 +3,9 @@
 This is the front end for the Hark Tech Test.
 This is a react app bundled using Parceljs, data is retrieved using axios and react-query, and displayed graphically using Highcharts.
 
+## Caution
+Unless you would like to view an error message, please run the Hark-Backend code locally first
+
 ## Prerequisites
 
 This application uses [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to handle package management, as such you will need to set this up if you haven't already.
