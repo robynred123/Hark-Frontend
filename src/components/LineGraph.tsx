@@ -1,35 +1,22 @@
-import Highcharts, { Options, format } from "highcharts";
+import Highcharts, { Options } from "highcharts";
 import { HighchartsReact } from "highcharts-react-official";
+import { formatToolTip } from "../utils/formatToolTip";
 import { MappedData } from "../types";
-import { mapAnomaly, mapEnergy, mapHumidity, mapTemperature } from "../mappers";
+import { mapEnergy, mapAnomaly, mapTemperature, mapHumidity } from "../mappers";
 
 export const LineGraph = (data: { data: MappedData }) => {
   const energyData = mapEnergy(data.data);
   const anomalyData = mapAnomaly(data.data);
   const temperatureData = mapTemperature(data.data);
   const humidityData = mapHumidity(data.data);
-  const firstDate = new Date(Object.keys(data.data)[0]).getTime();
-
-  const tooltipText = (s, point) => {
-    switch (point.series.name) {
-      case "Anomalies": {
-        return `${s}<br />Energy Usage Anomaly: true`;
-      }
-      case "Average Temperature": {
-        return `${s}<br />${point.series.name}: ${point.y}&deg C`;
-      }
-      case "Average Humidity": {
-        return `${s}<br />${point.series.name}: ${point.y}&deg RH`;
-      }
-      default: {
-        return `${s}<br />${point.series.name}: ${point.y}`;
-      }
-    }
-  };
+  const firstDate = new Date(Object.keys(data)[0]).getTime();
 
   const options: Options = {
     title: {
       text: "Energy and Weather Data In Your Location",
+    },
+    accessibility: {
+      enabled: true,
     },
     time: {
       useUTC: true,
@@ -48,7 +35,7 @@ export const LineGraph = (data: { data: MappedData }) => {
     tooltip: {
       formatter: function () {
         return this.points.reduce(function (s, point) {
-          return tooltipText(s, point);
+          return formatToolTip(s, point);
         }, "<b>" +
           Highcharts.dateFormat("%a %d %b %Y %H:%M", this.x as number) +
           "</b>");

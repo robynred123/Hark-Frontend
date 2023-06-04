@@ -1,7 +1,7 @@
-import { MappedData } from "../types";
+import { GraphDataArray, MappedData } from "../types";
 
 export const mapEnergy = (data: MappedData) => {
-  const energyData: { x: number; y: number }[] = [];
+  const energyData: GraphDataArray = [];
   Object.entries(data).map(([key, value]) => {
     if (value.energyConsumption) {
       const dateTime = new Date(key).getTime();
@@ -12,7 +12,7 @@ export const mapEnergy = (data: MappedData) => {
 };
 
 export const mapAnomaly = (data: MappedData) => {
-  const energyData: { x: number; y: number }[] = [];
+  const energyData: GraphDataArray = [];
   Object.entries(data).map(([key, value]) => {
     if (value.anomalyConsumption) {
       const dateTime = new Date(key).getTime();
@@ -23,7 +23,7 @@ export const mapAnomaly = (data: MappedData) => {
 };
 
 export const mapTemperature = (data: MappedData) => {
-  const energyData: { x: number; y: number }[] = [];
+  const energyData: GraphDataArray = [];
   Object.entries(data).map(([key, value]) => {
     if (value.avgTemperature) {
       const dateTime = new Date(key).getTime();
@@ -34,7 +34,7 @@ export const mapTemperature = (data: MappedData) => {
 };
 
 export const mapHumidity = (data: MappedData) => {
-  const energyData: { x: number; y: number }[] = [];
+  const energyData: GraphDataArray = [];
   Object.entries(data).map(([key, value]) => {
     if (value.avgHumidity) {
       const dateTime = new Date(key).getTime();

@@ -7,6 +7,12 @@ type formattedData = {
 };
 
 export type MappedData = { [key: string]: formattedData };
+
 export interface IChildProps {
   children: React.ReactNode;
 }
+
+export type GraphDataArray = {
+  x: number;
+  y: number;
+}[];
