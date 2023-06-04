@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { Home } from "./pages/home";
 import { QueryClientProvider, QueryClient } from "react-query";
+import { Layout } from "./pages/layout";
 
 const queryClient = new QueryClient();
 
@@ -9,7 +10,9 @@ if (container) {
   const root = createRoot(container);
   root.render(
     <QueryClientProvider client={queryClient}>
-      <Home />
+      <Layout>
+        <Home />
+      </Layout>
     </QueryClientProvider>
   );
 }

@@ -17,8 +17,8 @@ export const Home = () => {
     return <h1>{error.message}</h1>;
   }
   return (
-    <main>
+    <>
       <LineGraph data={data} />
-    </main>
+    </>
   );
 };

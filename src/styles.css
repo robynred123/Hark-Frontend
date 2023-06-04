@@ -20,3 +20,16 @@ p {
   color: var(--text-colour);
   font-size: 16px;
 }
+
+header {
+  padding: 1em;
+}
+
+main {
+  height: 100%;
+  padding: 1em;
+}
+
+.logo {
+  width: 10em;
+}
